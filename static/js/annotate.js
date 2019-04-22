@@ -59,6 +59,18 @@
         event) {
         self.annotatemove(event);
       });
+      $('#save').on('click', function() {
+        self.saveAnnotation();
+      });
+    },
+    saveAnnotation: function() {
+      self = this;
+      var jqxhr = $.post('/api/image/save', {
+        imagefileUrl: self.img.src,
+        annotateData:JSON.stringify(self.storedElement)
+      }).done(function (data) {
+        console.log('saved annotation data: ' + JSON.stringify(data));
+      })
     },
     initBackgroundImages: function() {
       var self = this;
@@ -76,8 +88,19 @@
           width: self.currentWidth
         });
         self.storedUndo = [];
-        self.storedElement = [];
+        self.reloadAnnotationFromServer();
       };
+    },
+    //retrieve annotation data from server
+    reloadAnnotationFromServer: function() {
+      var self = this;
+      var jqxhr = $.get('/api/image/getAnnotation',{
+        imagefileUrl: self.img.src,
+      }).done(function (data) {
+        self.storedElement = JSON.parse(data);
+        self.clear();
+        self.refreshDrawing();
+      });
     },
     refreshDrawing: function() {
       var self = this;
@@ -250,6 +273,7 @@
     undoaction: function(event) {
       event.preventDefault();
       var self = this;
+      self.pushText();
       if (self.storedElement.length == 0) {//nothing to undo
         return;
       }
@@ -260,6 +284,7 @@
     redoaction: function(event) {
       event.preventDefault();
       var self = this;
+      self.pushText();
       if (self.storedUndo.length === 0) {
         return;
       }
@@ -277,6 +302,7 @@
       $(this).data('annotate', annotate);
     } else { //reset the new image
       annotate.pushText();
+      annotate.saveAnnotation();
       annotate.fromx = null;
       annotate.fromy = null;
       annotate.dx = null;
