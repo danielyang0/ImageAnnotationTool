@@ -19,7 +19,7 @@ These file will be saved as random names on the server.
 2. Users can navigate images in current session.
 3. Two types of annotations are enabled: rectangle and text
 4. Annotations can be saved to the server automatically when navigating away from current images or toggling annotation tool. Annotations can be saved manually through a button as well.
-5. Annotation data will be saved to the same directory as the image files (${root}/static/image/annotations/), with the same file name except that the extension is changed to .json
+5. Annotation data will be saved to the same directory as the image files (```${root}/static/image/annotations/```), with the same file name except that the extension is changed to .json
 6. Users can undo and redo annotation on an image
 
 
@@ -29,13 +29,12 @@ prerequisite: install node(version >= 7.6) and npm(version >= 3.0)
 
 1. clone this repo
 2. go to root folder of this project, install dependencies: 
-    $ npm install
-
-3. run the application: $ npm start  
-    or :  $ node server.js
+    ```$ npm install```
+3. run the application: ```$ npm start ```
+    or ,      ```$ node server.js```
 4. In the browser, visit http://localhost:8080/ to use the application 
 
 
 #follow up
-1. develop an API to delete image files in ${root}/static/image/annotations/
+1. develop an API to delete image files in ```${root}/static/image/annotations/```
 2. reload image files and annotation from server in the previous sessions.

@@ -2,18 +2,12 @@ imageUrls = [];
 curIndex = -1;
 
 (function($){
-// let uploadBtn = document.getElementById('uploadImageBtn')
-// let lastImageBtn = document.getElementById('last_image')
-// let nextImageBtn = document.getElementById('next_image')
-// let previewElem = document.getElementById('imagePreview')
 $('#uploadImageBtn').on('click', function(){
   uploadEvent(function( results ) {
-    // console.log("uploaded urls:");
     var isFirst = true;
     for (var i = 0; i < results.length; i++) {
       let result = results[i];
       if ( result && result.success && result.pictureUrl ) {
-        // console.log(result.pictureUrl);
         imageUrls.push(result.pictureUrl);
         if (isFirst) {
           curIndex = imageUrls.length - 1;
