@@ -2,12 +2,8 @@
 <html>
 <head>
     <title><%= title %></title>
-    <style type="text/css">
-      .btn {
-        width: 100px;
-        height: 40px;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/annotate.css">
 </head>
 
 <body>
@@ -16,9 +12,29 @@
     <button class="btn" id="next_image">Next</button>
     <hr/>
     <p>Image Preview</p>
-    <div id="imagePreview" >
-        <canvas id="baseLayer_imagePreview"></canvas>
-        <canvas id="drawingLayer_iamgePreview"></canvas>
+    <div id="tools" class="btn-group" role="group">
+        <div class="btn-group" data-toggle="buttons">
+            <button class="btn btn-primary annotate-undo active" title="Undo the last annotation" > 
+                <span class="glyphicon glyphicon-arrow-left"></span>
+            </button>
+            <label class="btn btn-primary active">
+              <input type="radio" name="tool_option_imagePreview" data-tool="rectangle" data-toggle="tooltip" data-placement="top" title="Draw an rectangle"> 
+              <span class="glyphicon glyphicon-unchecked"></span>
+            </label>
+            <label class="btn btn-primary"><input type="radio" name="tool_option_imagePreview" data-tool="text" data-toggle="tooltip" data-placement="top" title="Write some text">
+              <span class="glyphicon glyphicon-font"></span>
+            </label>
+            <button type="button" id="redoaction" class="btn btn-primary annotate-redo" title="Redo the last undone annotation"> 
+                <span class="glyphicon glyphicon-arrow-right"></span>
+            </button>
+            <button type="button" id="save" title="save annotation" class="btn btn-primary  annotate-save"> 
+                <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+        </div>
+    </div>
+    <div id="imagePreview" class="preview-picture annotate-container">
+        <canvas id="baseLayer_imagePreview" class="canvas"></canvas>
+        <canvas id="drawingLayer_iamgePreview" class="canvas"></canvas>
     </div>
     <script type="text/javascript" src="/js/lib/jquery.min.js"></script>
     <script src="/js/index.js"></script>
