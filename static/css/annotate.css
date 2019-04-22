@@ -9,10 +9,6 @@
 	width: 691px;
 }
 
-.canvas {
-	height: 204px;
-	width: 491px;
-}
 .btn {
 	width: 100px;
 	height: 40px;
@@ -36,4 +32,22 @@
 	left: 0;
 	z-index: 1;
 	background: transparent;
+}
+
+#anotationText {
+	position: absolute;
+	z-index: 100000;
+	display: none;
+	top: 0;
+	left: 0;
+	background: transparent;
+	border: 1px dotted;
+	line-height: 25px;
+	font-size: 20px;
+	font-family: sans-serif;
+	color: blue;
+	word-wrap: break-word;
+	outline-width: 0;
+	overflow: hidden;
+	padding: 0px;
 }
