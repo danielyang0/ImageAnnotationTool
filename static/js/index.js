@@ -14,6 +14,7 @@ $('#uploadImageBtn').on('click', function(){
         imageUrls.push(result.pictureUrl);
         if (isFirst) {
           curIndex = imageUrls.length - 1;
+          document.getElementById('imagePreview').innerHTML = '<img src="'+ result.pictureUrl +'" style="max-width: 100%">';
           isFirst = false;
         }
       }
