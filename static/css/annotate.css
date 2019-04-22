@@ -43,9 +43,9 @@
 	background: transparent;
 	border: 1px dotted;
 	line-height: 25px;
-	font-size: 20px;
+	font-size: 30px;
 	font-family: sans-serif;
-	color: blue;
+	color: red;
 	word-wrap: break-word;
 	outline-width: 0;
 	overflow: hidden;

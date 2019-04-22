@@ -15,8 +15,8 @@
     this.currentWidth = null;
     this.currentHeight = null;
     this.linewidth = 1;
-    this.fontsize = '20px';
-    this.color = 'blue';
+    this.fontsize = '30px';
+    this.color = 'red';
     this.currentAnotateType = 'rectangle';
     this.init();
   }
