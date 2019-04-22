@@ -1,0 +1,22 @@
+{
+  "name": "image-annotation-tool",
+  "version": "1.0.0",
+  "description": "image-annotation-tool demo",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "zunyang",
+  "license": "MIT",
+  "dependencies": {
+    "busboy": "^0.2.14",
+    "ejs": "^2.5.7",
+    "koa": "^2.3.0",
+    "koa-static": "^3.0.0",
+    "koa-views": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=7.6.0",
+    "npm": ">=3.0.0"
+  }
+}
